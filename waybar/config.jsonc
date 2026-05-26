@@ -1,0 +1,100 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 44,
+  "spacing": 10,
+  "margin-top": 10,
+  "margin-left": 10,
+  "margin-right": 10,
+  // Added the custom launcher to the extreme left! ✨
+  "modules-left": ["custom/launcher", "hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["wireplumber", "backlight", "battery", "clock"],
+
+  "custom/launcher": {
+    "format": "", /* Removed the sneaky trailing space here 🕵️‍♀️ */
+    "on-click": "rofi -show drun -show-icons -terminal kitty",
+    "tooltip": false
+  },
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{icon}",
+
+    // Pure scroll supremacy 🛹
+    "on-scroll-up": "hyprctl dispatch \"hl.dsp.focus({ workspace = 'e-1' })\"",
+    "on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({ workspace = 'e+1' })\"",
+
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+
+  "hyprland/window": {
+    // Super clean format, separated by a single space 🧼
+    "format": "{class} {title}",
+    "max-length": 50,
+    "separate-outputs": true,
+    "rewrite": {
+      // Matches an empty string or a single space for the desktop 🧊
+      "^ ?$": "  Desktop",
+
+      // Chrome magic: strictly matches the spaceless class, then captures everything after the space into $1 ✨
+      "^[^ ]*chrome[^ ]* (.*)": "  $1",
+
+      // Cozy apps: strictly matches the class, ignores the title entirely, leaves just the minimal icon 💅
+      "^[^ ]*nautilus[^ ]* .*": "  Files",
+      "^[^ ]*kitty[^ ]* .*": "󰄛  Kitty",
+      "^[^ ]*kate[^ ]* .*": "  Kate",
+      "^[^ ]*lutris[^ ]* .*": "  Lutris"
+    }
+  },
+
+  "wireplumber": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰖁  Muted",
+    "format-icons": ["", "", ""],
+    "tooltip": false
+  },
+
+  "backlight": {
+    "format": "{icon}  {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "tooltip": false
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "clock": {
+    "format": "  {:%I:%M %p}",
+    "format-alt": "󰃭  {:%A, %B %d}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#F5C2E7'><b>{}</b></span>",
+        "days": "<span color='#B4BEFE'><b>{}</b></span>",
+        "weekdays": "<span color='#F9E2AF'><b>{}</b></span>",
+        "today": "<span color='#F38BA8'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  }
+}

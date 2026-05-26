@@ -1,0 +1,120 @@
+configuration {
+    modi: "drun";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    icon-theme: "Papirus";
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "   Apps ";
+    sidebar-mode: false;
+}
+
+@theme "/dev/null"
+
+* {
+    /* Catppuccin Mocha Colors */
+    bg-col:      #1e1e2e;      /* base */
+    bg-col-light: #313244;      /* surface0 */
+    border-col:  #cba6f7;      /* blue */
+    selected-col: #45475a;      /* surface1 */
+    highlight:   #f5c2e7;      /* flamingo/pink */
+    blue:        #89b4fa;
+    fg-col:      #cdd6f4;      /* text */
+    fg-col2:     #f38ba8;      /* red */
+
+    width: 550;
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+    vertical-align:   0.5;
+    font: "JetBrainsMono Nerd Font 14";
+}
+
+window {
+    border: 6px;
+    border-color: @border-col;
+    background-color: @bg-col;
+    border-radius: 25px;
+}
+
+mainbox {
+    background-color: @bg-col;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @bg-col;
+    padding: 15px 15px 5px 15px;
+}
+
+prompt {
+    background-color: @blue;
+    padding: 8px 15px;
+    text-color: @bg-col;
+    border-radius: 15px;
+    font: "JetBrainsMono Nerd Font Bold 11";
+}
+
+entry {
+    padding: 8px 15px;
+    margin: 0px 0px 0px 10px;
+    text-color: @fg-col;
+    background-color: @bg-col-light;
+    border-radius: 15px;
+    placeholder: "Search Apps...";
+    placeholder-color: #7f849c; /* subtext1 */
+}
+
+listview {
+    border: 0px;
+    padding: 10px;
+    margin: 5px 10px;
+    columns: 1;
+    lines: 5;
+    fixed-height: false;
+    background-color: @bg-col;
+}
+
+element {
+    padding: 10px 15px;
+    margin: 4px 0px;
+    background-color: @bg-col-light;
+    text-color: @fg-col;
+    border-radius: 20px;
+}
+
+element-icon {
+    size: 48px;
+    margin: 0 12px 0 0;
+}
+
+element selected {
+    background-color: @selected-col;
+    text-color: @highlight;
+    border: 2px;
+    border-color: @highlight;
+}
+
+mode-switcher {
+    spacing: 15px;
+    padding: 10px 40px 15px 40px;
+}
+
+button {
+    padding: 8px;
+    background-color: @bg-col-light;
+    text-color: @fg-col;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+    border-radius: 15px;
+}
+
+button selected {
+  background-color: @blue;
+  text-color: @bg-col;
+}

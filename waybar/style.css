@@ -1,0 +1,106 @@
+* {
+font-family: 'JetBrainsMono Nerd Font', 'Inter', 'JetBrains Mono', monospace;
+font-size: 14px;
+font-weight: 900;
+border: none;
+border-radius: 0;
+box-shadow: none;
+text-shadow: none;
+min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+/* Added #custom-launcher to the chunky block styling 🧊 */
+#custom-launcher,
+#window,
+#wireplumber,
+#backlight,
+#battery,
+#clock {
+color: #11111B;
+margin: 0px 4px;
+padding: 2px 16px;
+border-radius: 0px;
+border: 6px solid #11111B;
+}
+
+/* 🌸 Pastel Backgrounds 🌸 */
+
+#custom-launcher {
+background-color: #CBA6F7;
+font-size: 16px;
+/* Top, Right, Bottom, Left - Dialed back the overcompensation ⚖️ */
+padding: 2px 17px 2px 13px;
+}
+
+#workspaces {
+margin: 0px 4px;
+border-radius: 0px;
+border: 6px solid #11111B;
+background-color: #F5C2E7;
+padding: 0px;
+}
+
+#workspaces button {
+color: #585B70;
+padding: 2px 17px 2px 13px;
+margin: 0px;
+border-radius: 0px;
+background: transparent;
+transition: none;
+}
+
+#workspaces button.active {
+color: #11111B;
+background: transparent;
+}
+
+#workspaces button:hover {
+background: transparent;
+box-shadow: none;
+}
+
+#window {
+background-color: #F9E2AF;
+}
+
+#wireplumber {
+background-color: #A6E3A1;
+}
+
+#backlight {
+background-color: #B4BEFE;
+}
+
+#battery {
+background-color: #FAB387;
+}
+
+#battery.charging, #battery.plugged {
+color: #11111B;
+background-color: #94E2D5;
+}
+
+#battery.critical:not(.charging) {
+background-color: #F38BA8;
+color: #11111B;
+}
+
+#clock {
+background-color: #89B4FA;
+}
+
+/* 📅 Custom Tooltip Styling */
+tooltip {
+    background: #11111B;
+    border: 6px solid #89B4FA;
+    border-radius: 0px;
+}
+
+tooltip label {
+    color: #CDD6F4;
+    padding: 8px;
+}

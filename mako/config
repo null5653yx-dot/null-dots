@@ -1,0 +1,17 @@
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#89b4fa
+progress-color=over #313244
+border-size=2
+border-radius=8
+font=sans-serif 10
+padding=15
+
+# This makes notifications vanish after 5 seconds by default
+default-timeout=5000
+
+[urgency=high]
+border-color=#f38ba8
+# Critical alerts usually stay until you click them (0 = no timeout)
+# But you can set this to 10000 if you want them to leave after 10s
+default-timeout=0
