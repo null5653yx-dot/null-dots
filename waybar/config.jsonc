@@ -27,28 +27,23 @@
     "on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({ workspace = 'e+1' })\"",
 
     "format-icons": {
-      "active": "",
-      "default": ""
+      "active": "󰞇",
+      "default": "󰚌"
     }
   },
 
   "hyprland/window": {
-    // Super clean format, separated by a single space 🧼
-    "format": "{class} {title}",
+    // Super clean format, separated by a single space
+    "format": "{title}",
     "max-length": 50,
-    "separate-outputs": true,
+    "separate-outputs": false,
     "rewrite": {
-      // Matches an empty string or a single space for the desktop 🧊
-      "^ ?$": "  Desktop",
-
-      // Chrome magic: strictly matches the spaceless class, then captures everything after the space into $1 ✨
-      "^[^ ]*chrome[^ ]* (.*)": "  $1",
-
-      // Cozy apps: strictly matches the class, ignores the title entirely, leaves just the minimal icon 💅
-      "^[^ ]*nautilus[^ ]* .*": "  Files",
-      "^[^ ]*kitty[^ ]* .*": "󰄛  Kitty",
-      "^[^ ]*kate[^ ]* .*": "  Kate",
-      "^[^ ]*lutris[^ ]* .*": "  Lutris"
+      "(.*) - Google Chrome": "  $1",
+      "(.*) (?:—|-) Kate": "  $1",
+      "class<Nautilus> title<(.*)>": "󰉋  $1",
+      "class<lutris> title<(.*)>": "󰊗  $1",
+      "^Lutris$": "󰊗  Lutris",
+      "^$": "  Desktop"
     }
   },
 
