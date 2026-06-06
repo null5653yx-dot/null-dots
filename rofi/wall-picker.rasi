@@ -1,0 +1,92 @@
+configuration {
+    show-icons: true;
+}
+
+@theme "/dev/null"
+
+* {
+    /* Catppuccin Mocha Colors */
+    bg-col:       #1e1e2e;      /* base */
+    bg-col-light: #313244;      /* surface0 */
+    border-col:   #cba6f7;      /* blue */
+    selected-col: #45475a;      /* surface1 */
+    highlight:    #f5c2e7;      /* flamingo/pink */
+    blue:         #89b4fa;
+    fg-col:       #cdd6f4;      /* text */
+
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+window {
+    width: 1000px; /* Fixed width to prevent Hyprland from fullscreening it */
+    border: 6px;
+    border-color: @border-col;
+    background-color: @bg-col;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+mainbox {
+    background-color: @bg-col;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    background-color: @bg-col;
+    padding: 10px 15px;
+    margin: 0px 0px 15px 0px;
+    border-radius: 15px;
+}
+
+prompt {
+    background-color: @blue;
+    padding: 8px 15px;
+    text-color: @bg-col;
+    border-radius: 15px;
+    font: "JetBrainsMono Nerd Font Bold 11";
+}
+
+entry {
+    padding: 8px 15px;
+    margin: 0px 0px 0px 10px;
+    text-color: @fg-col;
+    background-color: @bg-col-light;
+    border-radius: 15px;
+    placeholder: "Search Wallpapers...";
+    placeholder-color: #7f849c; /* subtext1 */
+}
+
+listview {
+    columns: 4;
+    lines: 3;
+    spacing: 15px;
+    fixed-columns: true;
+    fixed-height: true; /* Prevents the menu from bouncing/resizing on the last page */
+    background-color: @bg-col;
+    border: 0px;
+    /* flow: horizontal; is REMOVED so your arrow keys actually make sense now */
+}
+
+element {
+    orientation: vertical;
+    padding: 10px; /* Kept a little padding for breathing room */
+    background-color: transparent;
+    border-radius: 20px;
+}
+
+element-icon {
+    size: 200px; /* Scaled down just a bit to fit perfectly in the 1000px window */
+    cursor: pointer;
+    background-color: transparent;
+}
+
+element-text {
+    enabled: false; /* Drops the file names for the clean grid */
+}
+
+element selected {
+    background-color: @selected-col;
+    border: 2px;
+    border-color: @highlight;
+}
