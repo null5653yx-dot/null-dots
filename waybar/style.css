@@ -1,9 +1,9 @@
 * {
 font-family: 'JetBrainsMono Nerd Font', 'Inter', 'JetBrains Mono', monospace;
-font-size: 14px;
-font-weight: 900;
+font-size: 16px;
+font-weight: 700;
 border: none;
-border-radius: 0;
+border-radius: 16px;
 box-shadow: none;
 text-shadow: none;
 min-height: 0;
@@ -13,8 +13,7 @@ window#waybar {
     background-color: transparent;
 }
 
-/* Added #custom-launcher to the chunky block styling 🧊 */
-#custom-launcher,
+
 #window,
 #wireplumber,
 #backlight,
@@ -23,32 +22,28 @@ window#waybar {
 color: #11111B;
 margin: 0px 4px;
 padding: 2px 16px;
-border-radius: 0px;
-border: 6px solid #11111B;
+border-radius: 16px;
+border: 6px solid #181825;
+background-clip: padding-box; /* ✨ The magic fix for the white corners ✨ */
 }
 
 /* 🌸 Pastel Backgrounds 🌸 */
 
-#custom-launcher {
-background-color: #CBA6F7;
-font-size: 16px;
-/* Top, Right, Bottom, Left - Dialed back the overcompensation ⚖️ */
-padding: 2px 17px 2px 13px;
-}
 
 #workspaces {
 margin: 0px 4px;
-border-radius: 0px;
-border: 6px solid #11111B;
+border-radius: 16px;
+border: 6px solid #181825;
 background-color: #F5C2E7;
 padding: 0px;
+background-clip: padding-box; /* ✨ Fix applied here too ✨ */
 }
 
 #workspaces button {
 color: #585B70;
 padding: 2px 17px 2px 13px;
 margin: 0px;
-border-radius: 0px;
+border-radius: 16px;
 background: transparent;
 transition: none;
 }
@@ -96,8 +91,8 @@ background-color: #89B4FA;
 /* 📅 Custom Tooltip Styling */
 tooltip {
     background: #11111B;
-    border: 6px solid #89B4FA;
-    border-radius: 0px;
+    border: 6px solid #181825;
+    border-radius: 16px;
 }
 
 tooltip label {
