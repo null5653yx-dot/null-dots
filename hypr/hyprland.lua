@@ -50,8 +50,10 @@ hl.on("hyprland.start", function ()
    hl.exec_cmd("gsettings set org.gnome.desktop.interface document-font-name 'Noto Serif 11'")
    hl.exec_cmd("gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font 11'")
    hl.exec_cmd("awww-daemon")
-   hl.exec_cmd("wl-paste --type text --watch cliphist store")
    hl.exec_cmd("waybar")
+   hl.exec_cmd("wl-paste --type text --watch cliphist store")
+--   hl.exec_cmd("nm-applet")
+--   hl.exec_cmd("waybar & hyprpaper & firefox")
 end)
 
 
@@ -94,7 +96,7 @@ hl.config({
         gaps_in  = 5,
         gaps_out = 15,
 
-        border_size = 7,
+        border_size = 5,
 
         col = {
             active_border   = { colors = {"rgba(f5c2e7ee)", "rgba(cba6f7ee)", "rgba(89b4faee)", "rgba(a6e3a1ee)", "rgba(f9e2afee)", "rgba(fab387ee)"}, angle = 45 },
@@ -112,11 +114,11 @@ hl.config({
 
     decoration = {
         rounding       = 10,
-        rounding_power = 0,
+        rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 0.95,
-        inactive_opacity = 0.7,
+        inactive_opacity = 0.8,
 
         shadow = {
             enabled      = false,
@@ -307,12 +309,12 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true, repeating = true })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl set 5%+"),                  { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl set 5%-"),                  { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
 
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
@@ -320,10 +322,12 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
-
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/cycle_wallpapers.sh"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("sh -c 'cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy'"))
 hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/wall-fetch.zsh"))
+hl.bind(mainMod .. " + ALT + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/rofi-walls.zsh"))
+
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
