@@ -1,0 +1,9 @@
+module NiceShell
+singleton Theme 1.0 Theme.qml
+TopBar 1.0 TopBar.qml
+BottomBar 1.0 BottomBar.qml
+LeftBar 1.0 LeftBar.qml
+RightBar 1.0 RightBar.qml
+Corner 1.0 Corner.qml
+Workspaces 1.0 Workspaces.qml
+WorkspaceWidget 1.0 WorkspaceWidget.qml
